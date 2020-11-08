@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>Weather Finder App</title>
+</head>
+<body>
+    <h1>Weather Dashboard</h1>
+    <!--add in a search bar Header <input> and a search button
+    
+    add sections where the information searched can be appended
+        City name/ date/ icon for the weater
+        temperature
+        humidity
+        windspeed
+        UV index
+
+        5 day forecast 
+            date
+            temps
+            little weather icons
+            humidity
+-->
+<div class="container">
+   
+        <div class="col-sm-3"> 
+        <div class="row">
+            <input type="text" placeholder="Search by City" id="seach-input">
+            <button type="button" class="btn btn-primary"><i class="fa fa-search" style="font-size:24px" id="search-button"></i></button>
+                <!--create list for last searched cities-->
+                <ul id="last-searched-cities"></ul>
+                </div>
+        </div>            
+    
+<div class="col-sm-9" id="weather-info">
+        <!--City name/date/weather icon here-->
+        <h1 id="city-name">City Name Here</h1>
+        <div id="weather-icon"></div>
+            <div id="currentDay"></div>
+
+        <!--temperature here-->
+        <div>
+            <div id="currentDayTemp"></div>
+        </div>
+        <!--humidity here-->
+       <div>
+            <div id="currentDayHumidity"></div>
+       </div>
+        <!--windspeend here-->
+       <div>
+            <div id="currentDayWind"></div>
+       </div>
+        <!-- UV index here-->
+        <div>
+            <div id="currentDayUV"></div>
+        </div>
+        <!-- 5 day forecast -->
+        <div id="five-day-forecast"></div>
+    </div>
+    </div>
+    <!--link jquery and weather api-->
+ </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>

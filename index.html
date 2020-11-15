@@ -26,17 +26,17 @@
             humidity
 -->
 <div class="container">
-   
+    <div class="row">
         <div class="col-sm-3"> 
-        <div class="row">
-            <input type="text" placeholder="Search by City" id="seach-input">
+        
+            <input type="text" placeholder="Search by City" id="search-input">
             <button type="button" class="btn btn-primary"><i class="fa fa-search" style="font-size:24px" id="search-button"></i></button>
                 <!--create list for last searched cities-->
                 <ul id="last-searched-cities"></ul>
                 </div>
-        </div>            
+                   
     
-<div class="col-sm-9" id="weather-info">
+    <div class="col-sm-9" id="weather-info">
         <!--City name/date/weather icon here-->
         <h1 id="city-name">City Name Here</h1>
         <div id="weather-icon"></div>
@@ -44,24 +44,61 @@
 
         <!--temperature here-->
         <div>
-            <div id="currentDayTemp"></div>
-        </div>
+            <div id="currentDayTemp"> </div>
+        </div><br>
         <!--humidity here-->
-       <div>
-            <div id="currentDayHumidity"></div>
-       </div>
+       <div> 
+           <div id="currentDayHumidity"> </div>
+       </div><br>
         <!--windspeend here-->
        <div>
-            <div id="currentDayWind"></div>
-       </div>
+           <div id="currentDayWind"> </div>
+       </div><br>
         <!-- UV index here-->
         <div>
             <div id="currentDayUV"></div>
         </div>
+    </div>
+    </div>
         <!-- 5 day forecast -->
-        <div id="five-day-forecast"></div>
+        
+    
+        <div class="row">
+        <h1>5 Day Forecast</h1> 
     </div>
-    </div>
+        <div id="five-day-forecast">
+            
+           <div class="row"> 
+               <div class="col-offset2"></div>
+            <div class="col-sm-2">
+                <div id="day-one"></div>
+                <div id="day-one-temp"></div>
+                <div id="day-one-humidity"></div>
+            </div>
+            <div class="col-sm-2">
+                <div id="day-two"></div>
+                <div id="day-two-temp"></div>
+                <div id="day-two-humidity"></div>
+            </div>
+            <div class="col-sm-2">
+                <div id="day-three"></div>
+                <div id="day-three-temp"></div>
+                <div id="day-three-humidity"></div>
+            </div>
+            <div class="col-sm-2">
+                <div id="day-four"></div>
+                <div id="day-four-temp"></div>
+                <div id="day-four-humidity"></div>
+            </div>
+            <div class="col-sm-2">
+                <div id="day-five"></div>
+                <div id="day-five-temp"></div>
+                <div id="day-five-humidity"></div>
+            </div>
+        </div>
+        </div>
+    
+</div>
     <!--link jquery and weather api-->
  </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -1,0 +1,12 @@
+body {
+    background-image: url(Images/marek-szturc-2s3fI3M1lO0-unsplash.jpg);
+}
+
+li {
+    background-color: white;
+    opacity: 75%;
+    border-radius: 5px;
+    width: 50%;
+    text-align: center;
+    padding: 5px;
+}

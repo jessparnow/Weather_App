@@ -1,12 +1,12 @@
+console.log("hello, you're doing a great job");
 let m = moment();
 
-// console.log(m.format("L"));
+console.log(m.format("L"));
 //add in one day to pull for the 5 day forecast
 let dateDisplay = $("#currentDay");
 
 let today = moment().format("dddd, L");
 dateDisplay.text(today);
-
 function currentweather(cityName) {
   // add a query url call an ajax funtion
   let queryURL =
@@ -19,8 +19,6 @@ function currentweather(cityName) {
     method: "GET",
   }).then(function (response) {
     // console.log(response);
-    let icon = $('#weather-icon');
-    icon.html('<img>' + response.weather[0].icon + '</>')
     let temp = $("#currentDayTemp");
     temp.html(
       '<p class="weatherinfo"> Temperature: ' + response.main.temp +
@@ -34,9 +32,8 @@ function currentweather(cityName) {
     let windSpeed = $("#currentDayWind");
     windSpeed.html(
       '<p class="weatherinfo"> Wind Speed: ' + response.wind.speed +
-      'mph</p>');
+      '<p>');
   });
-
 }
 
 function fiveDay(cityName) {
@@ -48,7 +45,7 @@ function fiveDay(cityName) {
     url: queryURL,
     method: "GET",
   }).then(function (response) {
-    // console.log(response);
+    console.log(response);
 
     let dayOneTemp = $("#day-one-temp");
     dayOneTemp.html(
@@ -100,7 +97,7 @@ function fiveDay(cityName) {
     );
     let dayFourHumidity = $("#day-four-humidity");
     dayFourHumidity.html(
-      '<p class="fiveDayInfo"> Humidity: ' +
+      '<p class="fiveDayInfo" Humidity: ' +
         response.list[27].main.humidity +
         "&#37; </p>" 
     );
@@ -112,15 +109,12 @@ function fiveDay(cityName) {
     );
   });
 }
-let citySearchInput = $("#search-input").val();
-let lastSearchedCities = $("ul");
-    let cityListItems = $("<li>");
-    let cities = [];
 
-$("#search-button").on("click", function () {
-  
-  // event.preventDefault();
-  // console.log(citySearchInput);
+
+$("#search-button").on("click", function (event) {
+  let citySearchInput = $("#search-input").val();
+  event.preventDefault();
+  console.log(citySearchInput);
   //pulls the weather from the api
   currentweather(citySearchInput);
   fiveDay(citySearchInput);
@@ -134,7 +128,8 @@ $("#search-button").on("click", function () {
     // find ul
     //create the list items
     // attach li to ul
-    
+    let lastSearchedCities = $("ul");
+    let cityListItems = $("<li>");
     cityListItems.text(citySearchInput)
     lastSearchedCities.append(cityListItems);
 
@@ -145,15 +140,11 @@ $("#search-button").on("click", function () {
     //add city Name into the header element
     let currentCityHeader = $("#city-name");
     currentCityHeader.text(citySearchInput);
-    setCityName();
-  //   for (let i = 0; i < localStorage.length; i++){
-  //     //selecting the id and placing into the display key() represents the key in the object 
-  //      $('<li>' + localStorage.key(i)).val(localStorage.getItem(localStorage.key(i)));
-  //     console.log(localStorage.key(i))
-  // }
+    localStorage.setItem('city name', citySearchInput);
+    console.log(localStorage)
   });
 
-  console.log(localStorage)
+  
 });
 
 function fiveDayDisplay(){
@@ -172,11 +163,15 @@ dayFourDisplay.text(m.add(1, 'days').format('L'));
 let dayFiveDisplay = $("#day-five");
 dayFiveDisplay.text(m.add(1, 'days').format('L'));
 }
-function setCityName(){
-  localStorage.setItem('city name', citySearchInput);
-}
-localStorage.getItem(cityListItems);
 
-if (cityListItems === !null){
-  cities = cityListItems;
-}
+  //   for (let i = 0; i < localStorage.length; i++){
+  //     //selecting the id and placing into the display key() represents the key in the object 
+  //      $('<li>' + localStorage.key(i)).val(localStorage.getItem(localStorage.key(i)));
+  //     console.log(localStorage.key(i))
+  // }
+
+  // localStorage.getItem(cityListItems);
+
+// if (cityListItems === !null){
+//   cities = cityListItems;
+// }

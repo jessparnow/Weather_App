@@ -9,6 +9,7 @@ li {
     width: 50%;
     text-align: center;
     padding: 5px;
+    color: black;
 }
 .weatherinfo {
     background-color: white;
@@ -25,4 +26,14 @@ li {
     padding: 5px;
     width: 85%;
     text-align: center;
+}
+input {
+    border: #71697A;
+    border-radius: 5px;
+    height: 40px;
+    padding: 5px;
+}
+#buttoncolor {
+    background-color:#ECA284;
+    border: none;
 }

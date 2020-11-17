@@ -10,3 +10,19 @@ li {
     text-align: center;
     padding: 5px;
 }
+.weatherinfo {
+    background-color: white;
+    opacity: 75%;
+    border-radius: 10px;
+    padding: 5px;
+    width: 35%;
+    text-align: center;
+}
+.fiveDayInfo {
+    background-color: white;
+    opacity: 75%;
+    border-radius: 10px;
+    padding: 5px;
+    width: 85%;
+    text-align: center;
+}

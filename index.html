@@ -10,21 +10,6 @@
 </head>
 <body>
     <h1>Weather Dashboard</h1>
-    <!--add in a search bar Header <input> and a search button
-    
-    add sections where the information searched can be appended
-        City name/ date/ icon for the weater
-        temperature
-        humidity
-        windspeed
-        UV index
-
-        5 day forecast 
-            date
-            temps
-            little weather icons
-            humidity
--->
 <div class="container">
     <div class="row">
         <div class="col-sm-3"> 
@@ -33,27 +18,27 @@
             <button type="button" class="btn btn-primary"><i class="fa fa-search" style="font-size:24px" id="search-button"></i></button>
                 <!--create list for last searched cities-->
                 <ul id="last-searched-cities"></ul>
+                <div id="msgDisplay"></div>
                 </div>
-                   
-    
+
     <div class="col-sm-9" id="weather-info">
         <!--City name/date/weather icon here-->
-        <h1 id="city-name">City Name Here</h1>
+        <h1 id="city-name"></h1>
         <div id="weather-icon"></div>
-            <div id="currentDay"></div>
+            <h3 id="currentDay"></h3><br>
 
         <!--temperature here-->
         <div>
             <div id="currentDayTemp"> </div>
-        </div><br>
+        </div>
         <!--humidity here-->
        <div> 
            <div id="currentDayHumidity"> </div>
-       </div><br>
+       </div>
         <!--windspeend here-->
        <div>
            <div id="currentDayWind"> </div>
-       </div><br>
+       </div>
         <!-- UV index here-->
         <div>
             <div id="currentDayUV"></div>
@@ -71,27 +56,27 @@
            <div class="row"> 
                <div class="col-offset2"></div>
             <div class="col-sm-2">
-                <div id="day-one"></div>
+                <div id="day-one"></div><br>
                 <div id="day-one-temp"></div>
                 <div id="day-one-humidity"></div>
             </div>
             <div class="col-sm-2">
-                <div id="day-two"></div>
+                <div id="day-two"></div><br>
                 <div id="day-two-temp"></div>
                 <div id="day-two-humidity"></div>
             </div>
             <div class="col-sm-2">
-                <div id="day-three"></div>
+                <div id="day-three"></div><br>
                 <div id="day-three-temp"></div>
                 <div id="day-three-humidity"></div>
             </div>
             <div class="col-sm-2">
-                <div id="day-four"></div>
+                <div id="day-four"></div><br>
                 <div id="day-four-temp"></div>
                 <div id="day-four-humidity"></div>
             </div>
             <div class="col-sm-2">
-                <div id="day-five"></div>
+                <div id="day-five"></div><br>
                 <div id="day-five-temp"></div>
                 <div id="day-five-humidity"></div>
             </div>

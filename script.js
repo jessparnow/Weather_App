@@ -18,7 +18,9 @@ function currentweather(cityName) {
     url: queryURL,
     method: "GET",
   }).then(function (response) {
-    // console.log(response);
+    console.log(response);
+    let icon = $('#weather-icon');
+    icon.html(response.weather[0].icon)
     let temp = $("#currentDayTemp");
     temp.html(
       '<p class="weatherinfo"> Temperature: ' + response.main.temp +
@@ -45,7 +47,7 @@ function fiveDay(cityName) {
     url: queryURL,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
+    // console.log(response);
 
     let dayOneTemp = $("#day-one-temp");
     dayOneTemp.html(
@@ -170,8 +172,8 @@ dayFiveDisplay.text(m.add(1, 'days').format('L'));
   //     console.log(localStorage.key(i))
   // }
 
-  // localStorage.getItem(cityListItems);
+  // localStorage.getItem('city name');
 
-// if (cityListItems === !null){
-//   cities = cityListItems;
+// if ('city name' === !null){
+//   
 // }

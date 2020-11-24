@@ -60,6 +60,13 @@ function fiveDay(cityName) {
   }).then(function (response) {
     console.log(response);
 
+    let dayOneIcon = $('#day-one-icon')
+    dayOneIcon.html (
+      '<img src="http://openweathermap.org/img/w/' +
+        response.list[3].weather[0].icon +
+        '.png" height="40px">'
+    );
+
     let dayOneTemp = $("#day-one-temp");
     dayOneTemp.html(
       '<p class="fiveDayInfo"> Temp: ' +
@@ -133,18 +140,6 @@ $("#search-button").on("click", function (event) {
   //displays the date for the five day forecast
   fiveDayDisplay();
   createBtn(citySearchInput);
-  // $(document).ready(function () {
-  // let ul = $("ul");
-  // let li = $("<li>");
-  //  ul.append(li);
-
-  // find ul
-  //create the list items
-  // attach li to ul
-
-  //add city Name into the header element
-  // let currentCityHeader = $("#city-name");
-  //currentCityHeader.text(citySearchInput);
 
   //chackto see if theres any saved search history in local storage
   if (localStorage.getItem("btns")) {
@@ -204,14 +199,4 @@ if (localStorage.getItem("btns")) {
     createBtn(cities[i]);
   }
 }
-//   for (let i = 0; i < localStorage.length; i++){
-//     //selecting the id and placing into the display key() represents the key in the object
-//      $('<li>' + localStorage.key(i)).val(localStorage.getItem(localStorage.key(i)));
-//     console.log(localStorage.key(i))
-// }
 
-// localStorage.getItem('city name');
-
-// if ('city name' === !null){
-//
-// }

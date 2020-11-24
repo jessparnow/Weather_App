@@ -2,9 +2,7 @@ console.log("hello, you're doing a great job");
 let m = moment();
 
 console.log(m.format("L"));
-//add in one day to pull for the 5 day forecast
 let dateDisplay = $("#currentDay");
-
 let today = moment().format("dddd, L");
 dateDisplay.text(today);
 
@@ -58,15 +56,39 @@ function fiveDay(cityName) {
     url: queryURL,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
-
-    let dayOneIcon = $('#day-one-icon')
+    // console.log(response);
+// WEATHER ICONS
+    let dayOneIcon = $('#day-one-icon');
     dayOneIcon.html (
       '<img src="http://openweathermap.org/img/w/' +
         response.list[3].weather[0].icon +
         '.png" height="40px">'
     );
-
+    let dayTwoIcon = $('#day-two-icon');
+    dayTwoIcon.html (
+      '<img src="http://openweathermap.org/img/w/' +
+        response.list[11].weather[0].icon +
+        '.png" height="40px">'
+    );
+    let dayThreeIcon = $('#day-three-icon');
+    dayThreeIcon.html (
+      '<img src="http://openweathermap.org/img/w/' +
+        response.list[19].weather[0].icon +
+        '.png" height="40px">'
+    );
+    let dayFourIcon = $('#day-four-icon');
+    dayFourIcon.html (
+      '<img src="http://openweathermap.org/img/w/' +
+        response.list[27].weather[0].icon +
+        '.png" height="40px">'
+    );
+    let dayFiveIcon = $('#day-five-icon');
+    dayFiveIcon.html (
+      '<img src="http://openweathermap.org/img/w/' +
+        response.list[35].weather[0].icon +
+        '.png" height="40px">'
+    );
+// 5 day forecast temperatures
     let dayOneTemp = $("#day-one-temp");
     dayOneTemp.html(
       '<p class="fiveDayInfo"> Temp: ' +
@@ -97,6 +119,7 @@ function fiveDay(cityName) {
         response.list[35].main.temp +
         "&#176; F </p>"
     );
+    // 5 day forecast Humidity
     let dayOneHumidity = $("#day-one-humidity");
     dayOneHumidity.html(
       '<p class="fiveDayInfo"> Humidity: ' +
@@ -133,7 +156,7 @@ function fiveDay(cityName) {
 $("#search-button").on("click", function (event) {
   event.preventDefault();
   let citySearchInput = $("#search-input").val();
-  console.log(citySearchInput);
+  // console.log(citySearchInput);
   //pulls the weather from the api
   currentweather(citySearchInput);
   fiveDay(citySearchInput);
@@ -152,13 +175,13 @@ $("#search-button").on("click", function (event) {
     localStorage.setItem("btns", citySearchInput);
   }
   localStorage.setItem("city name", citySearchInput);
-  console.log(localStorage);
-  // });
+  // console.log(localStorage);
+
 });
 // create the list items as buttons
 function createBtn(city) {
   let lastSearchedCities = $("ul");
-  let cityListItems = $("<li>");
+  let cityListItems = $("<li class='searchHistory'>");
   cityListItems.text(city);
   lastSearchedCities.append(cityListItems);
 
@@ -167,6 +190,12 @@ function createBtn(city) {
   if (cityInputText === "") return;
 }//add onclick for the list intems
 //give li a class and create an on click using dynamic html
+$('.searchHistory').on('click', function (event){
+  event.preventDefault();
+  currentweather(citySearchInput);
+  fiveDay();
+  fiveDayDisplay();
+});
 
 function fiveDayDisplay() {
   let dayOneDisplay = $("#day-one");
@@ -190,11 +219,12 @@ if (localStorage.getItem("city name")) {
   let recentSearch = localStorage.getItem("city name");
   currentweather(recentSearch);
   fiveDay(recentSearch);
+  fiveDayDisplay(recentSearch);
 }
 // on page load pulls up the search history list
 if (localStorage.getItem("btns")) {
   let cities = localStorage.getItem("btns").split(",");
-  console.log(cities);
+  // console.log(cities);
   for (let i = 0; i < cities.length; i++) {
     createBtn(cities[i]);
   }

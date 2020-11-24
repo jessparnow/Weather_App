@@ -1,7 +1,8 @@
-console.log("hello, you're doing a great job");
+console.log("You're doing a great job!");
+console.log('Keep up the great work!')
 let m = moment();
 
-console.log(m.format("L"));
+// console.log(m.format("L"));
 let dateDisplay = $("#currentDay");
 let today = moment().format("dddd, L");
 dateDisplay.text(today);
@@ -156,7 +157,7 @@ function fiveDay(cityName) {
 $("#search-button").on("click", function (event) {
   event.preventDefault();
   let citySearchInput = $("#search-input").val();
-  // console.log(citySearchInput);
+  console.log(citySearchInput);
   //pulls the weather from the api
   currentweather(citySearchInput);
   fiveDay(citySearchInput);
@@ -181,21 +182,33 @@ $("#search-button").on("click", function (event) {
 // create the list items as buttons
 function createBtn(city) {
   let lastSearchedCities = $("ul");
-  let cityListItems = $("<li class='searchHistory'>");
+  let cityListItems = $("<li class='search-history'>");
   cityListItems.text(city);
   lastSearchedCities.append(cityListItems);
 
   let cityInputText = city.value;
 
   if (cityInputText === "") return;
-}//add onclick for the list intems
+}
+//add onclick for the list intems
 //give li a class and create an on click using dynamic html
-$('.searchHistory').on('click', function (event){
-  event.preventDefault();
-  currentweather(citySearchInput);
-  fiveDay();
-  fiveDayDisplay();
-});
+    // $(document).on("click", '.search-history', function(event) {
+      
+    //   event.preventDefault();
+     
+    //   let searchHistory = localStorage.getItem('city name');
+    //   let currentCityHeader = $("#city-name");
+    //   currentCityHeader.val(searchHistory);
+    //   // for (let i = 0; i < searchHistory.length; i++) {
+    //   //   console.log(searchHistory[i]);
+      
+    //   // }
+    //   console.log(searchHistory);
+    //   // createBtn(searchHistory);
+    //   currentweather(searchHistory);
+    //   // fiveDay(searchHistory);
+    //   // fiveDayDisplay()
+    //  });
 
 function fiveDayDisplay() {
   let dayOneDisplay = $("#day-one");
